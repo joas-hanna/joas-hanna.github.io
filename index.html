@@ -1,14 +1,29 @@
-﻿<html>
+<html>
 <head>
     <title>Joas & Hanna</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="Anfang">
-        <h1>Joas und Hanna</h1>
-        <p id="demo"></p>
+        <h1 id="oben">Joas & Hanna</h1>
+        <h2 id="datum">22.08.2025</h2>
+        
+            
+    </div>
+
+    <div id="Trauung" class="box"> 
+      <img id="kirchenbild" src="Kirche.jpg">
+      <p class="schwebend">Die Trauung wird in der Kreuzkirche Auggen stadtfinden <br>
+      Hauptstraße 57, 79424 Augen</p>
+    </div>
+
+    <div id="Countdown">
+      <p id="demo"></p>
         <script>
             var countDownDate = new Date("Aug 22, 2025 15:37:25").getTime();
             var x = setInterval(function() {
@@ -27,8 +42,22 @@
             }, 1000);
             
             </script>
-            
     </div>
-</body>
 
+    <div id="Anmeldung"> 
+
+      <h3>Anmeldung</h3>
+      <p>Bist du dabei?</p>
+      <div id="knöpfe">
+      <button class="knöpfchen">Ja, natürlich</button>
+      <button class="knöpfchen"> Nein, leider nicht</button>
+      <div id="extra-info">
+        <form>
+          
+        </form>
+      </div>
+      </div>
+
+    </div>
+  </body>
 </html>

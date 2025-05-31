@@ -1,6 +1,54 @@
 html {
-    font-size: 50;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
  }
 #Anfang {
     text-align: center;
+    font-family: "Amarante", serif;
+    background-color: #bec5a4;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    border-bottom: solid, 10px, black; 
+}
+#oben {
+margin-bottom: -10;
+}
+#datum {
+    margin-top: 0px;
+    font-size: 24px;
+    font-weight: 100;
+
+}
+#Trauung {
+    position: relative;
+    height:200px;
+    text-align: center;
+}
+#kirchenbild {
+    height: 50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+#Anmeldung {
+    background-color: f0e2d5;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#knöpfe {
+    display: flex;
+    justify-content: center;
+}
+.knöpfchen {
+    background-color: #bec5a4;
+    border: 0px;
+    border-radius: 4px;
+    margin: 5px;
+    font-size: 14px;
+    
 }
