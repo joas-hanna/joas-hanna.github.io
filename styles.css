@@ -1,48 +1,80 @@
 html {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-family: "Imbue", serif;
     text-align: center;
 
- }
+}
+
 #Anfang {
     text-align: center;
-    font-family: "Amarante", serif;
-    background-color: #bec5a4;
+    font-family: "Imbue", serif;
+    background-color: #585858;
     margin:0px;
     padding:0px;
     box-sizing: border-box;
     border-bottom: solid, 10px, black; 
+    background-image: url(Starter.jpg);
+    background-size: 1536px 1000px;
+    overflow-y: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1000px;
 }
 #oben {
-margin-bottom: -10;
+color: wheat;
+margin-top: 200px;
+font-size: 200px;
+margin-bottom: 0px;
+font-weight: 700;
 }
-#datum {
+#demo {
     margin-top: 0px;
-    font-size: 24px;
-    font-weight: 100;
-
+font-size: 100px;
+color: wheat;
+font-weight: 400;
+margin-bottom: 0px;
+}
+#unterschrift {
+    margin-top: 0px;
+    color: white;
 }
 #Trauung {
-    position: relative;
-    height:200px;
-    text-align: center;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+padding: 100px 0px;
+position: relative;
+}
+#kirchenbildcont {
+    display: flex;
+    align-items: center;
+    width: 40%;
 }
 #kirchenbild {
-    height: 50%;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+width: 100%;
+height: auto;
 }
+.links {
+    width: 40%;
+}
+.trenner {
+    width: 3px;
+    background-color: black;
+    align-self: stretch;  
+    max-height: 75%;     
+    margin: 0 10px;
+  }
+
 #Anmeldung {
     background-color: f0e2d5;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+
 }
 #knöpfe {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .knöpfchen {
     background-color: #bec5a4;
@@ -50,5 +82,68 @@ margin-bottom: -10;
     border-radius: 4px;
     margin: 5px;
     font-size: 14px;
+    opacity: 1;
+}
+.knöpfchen:last-child {
+    display: block;
+}
+#extra-info {
+    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
     
+}
+#ja:checked ~ #extra-info {
+    max-height: 500px;
+}
+#nein:checked ~ #extra-info {
+    max-height: 500px;
+}
+input {
+    border: none;
+    font-size: 40px;
+}
+.klabel {
+    border: black 2px solid;
+    padding: 5px;
+    transition: background-color 0.5s;
+    font-size: 40;
+}
+.klabel:hover {
+    background-color: white;
+}
+#ja:checked + #jas {
+    background-color: white;
+}
+#nein:checked + #neins {
+    background-color: white;
+}
+.anmeldungi {
+    background-color: #f0e2d5;
+    margin-top: 5px;
+    border-bottom: white 2px solid;
+    margin-bottom: 5px;
+}
+#submit {
+    background-color: #f0e2d5;
+    font-family: "Imbue", serif; 
+    font-size: 60px;
+    border: black, 2px, solid;
+}
+#bemerkungen {
+    width:1000px;
+    font-size: 60px;
+    font-family: "Imbue", serif; 
+    
+}
+#extra {
+    flex-basis: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#bermerkungencont {
+    display: flex;
+    justify-content: center;
 }

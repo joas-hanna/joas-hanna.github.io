@@ -1,63 +1,90 @@
-<html>
+﻿<html>
 <head>
     <title>Joas & Hanna</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="Icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Lumanosimo&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="Anfang">
         <h1 id="oben">Joas & Hanna</h1>
-        <h2 id="datum">22.08.2025</h2>
-        
+        <div id="Countdown">
+          <p id="demo">Countdown</p>
+            <script>
+                var countDownDate = new Date("Aug 22, 2025 15:37:25").getTime();
+                var x = setInterval(function() {
+                  var now = new Date().getTime();
+                  var distance = countDownDate - now;
+                  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                  + minutes + "m";
+                  if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "Verheiratet!";
+                  }
+                }, 1000);
+                
+                </script>
+        </div>
+        <h2 id="unterschrift">Herzliche Einladung zu unserer Hochzeit!</h2>
             
     </div>
 
     <div id="Trauung" class="box"> 
-      <img id="kirchenbild" src="Kirche.jpg">
-      <p class="schwebend">Die Trauung wird in der Kreuzkirche Auggen stadtfinden <br>
+      <p class="links">Die Trauung wird in der Kreuzkirche Auggen stadtfinden <br>
       Hauptstraße 57, 79424 Augen</p>
+      <div class="trenner" id="Trauungstrenner"></div>
+      <div id="Kirchenbildcont">
+        <img id="kirchenbild" src="Kirche.jpg">
+      </div>
     </div>
 
-    <div id="Countdown">
-      <p id="demo"></p>
-        <script>
-            var countDownDate = new Date("Aug 22, 2025 15:37:25").getTime();
-            var x = setInterval(function() {
-              var now = new Date().getTime();
-              var distance = countDownDate - now;
-              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-              + minutes + "m " + seconds + "s ";
-              if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "Verheiratet!";
-              }
-            }, 1000);
-            
-            </script>
-    </div>
+
 
     <div id="Anmeldung"> 
-
+      <form action="https://formsubmit.co/bobthecuddler@gmail.com" method="POST">
       <h3>Anmeldung</h3>
       <p>Bist du dabei?</p>
       <div id="knöpfe">
-      <button class="knöpfchen">Ja, natürlich</button>
-      <button class="knöpfchen"> Nein, leider nicht</button>
-      <div id="extra-info">
-        <form>
-          
-        </form>
-      </div>
-      </div>
+        <input type="radio" class="knöpfchen" id="ja" name="Anmeldung">
+        <label for="ja" class="klabel" id="jas">Ja, natürlich</label>
+        <input type="radio" class="knöpfchen" id="nein" name="Anmeldung">
+        <label for="nein" class="klabel" id="neins">Nein, leider nicht</label>
 
+        <div id="extra-info">
+
+        <div id="extra">
+
+        <div class="anmeldediv">
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" name="Vorname" class="Anmeldungi">
+        </div>
+
+        <div class="anmeldediv">
+        <label for="nachname">Nachname:</label>
+        <input type="text" id="nachname" name="Nachname" class="Anmeldungi">
+        </div>
+        <div class="anmeldediv">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" class="Anmeldungi">
+        </div>
+
+        </div>
+        <div id="Bemerkungencont">
+        <label for="bemerkungen">Bemerkugnen: <br> </label>
+        <textarea id="bemerkungen" name="Bemerkungen" class="Anmeldungi"></textarea>
+      </div>
+        <input type="submit" id="submit">
+      </div>
+        </div>
+      </div>
+      </form>
     </div>
   </body>
 </html>
