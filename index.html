@@ -139,13 +139,13 @@
                         vorname: document.getElementById('vorname').value,
                         nachname: document.getElementById('nachname').value,
                         email: document.getElementById('email').value,
-                        teilnahme: document.querySelector('input[name="teilnahme"]:checked').value,
+                        teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || '',
                         bemerkungen: document.getElementById('bemerkungen').value,
-                        anmeldung: document.querySelector('input[name="Anmeldung"]:checked').value
+                        anmeldung: document.querySelector('input[name="Anmeldung"]:checked')?.value || ''
                     };
 
                     try {
-                        const response = await fetch('https://kaltenbachstagebau.com/registrations.php', {
+                        const response = await fetch('http://localhost:8000/registrations.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
