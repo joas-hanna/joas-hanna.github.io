@@ -1,0 +1,124 @@
+﻿<html>
+<head>
+    <title>Joas & Hanna</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesjoni.css">
+    <link rel="icon" type="image/x-icon" href="Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Lumanosimo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="Anfang">
+        <h1 id="oben">Joas & Hanna</h1>
+        <div id="Countdown">
+          <p id="demo">Countdown</p>
+            <script>
+                var countDownDate = new Date("Aug 22, 2025 15:37:25").getTime();
+                var x = setInterval(function() {
+                  var now = new Date().getTime();
+                  var distance = countDownDate - now;
+                  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                  + minutes + "m";
+                  if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "Verheiratet!";
+                  }
+                }, 1000);
+                
+                </script>
+        </div>
+        <h2 id="unterschrift">Herzliche Einladung zu unserer Hochzeit!</h2>
+            
+    </div>
+
+    <div id="Trauung" class="box"> 
+      <p class="links">Die Trauung wird in der Kreuzkirche Auggen stadtfinden <br>
+      Hauptstraße 57, 79424 Augen</p>
+      <div class="trenner" id="Trauungstrenner"></div>
+      <div id="Kirchenbildcont">
+        <img id="kirchenbild" src="Kirche.jpg">
+      </div>
+    </div>
+
+    <div id="Location" class="box">
+      <div id="bildcontainer">
+        <img id="locationbild" src="location.jpg">
+      </div>
+     <div class="trenner"></div>
+      <p class="rechts">Die Feier wird in der kreukirche Auggen stadtfinden <br> leipziger straße 85, 69123 Buxtehude</p>
+
+    </div>
+
+    <div id="Zeitplan">
+
+    </div>
+    <div id="Geschenke">
+      <h3 id="Geschenkeheader">Geschenke</h3>
+      <p>Hier ist ein link:</p> <br>
+      <div id="geschenkebox">
+        <a href="https://www.nocake.de/user/lordkleinstein/joas-und-hannas-wunschzettel">Geschenkeliste</a>
+        </div>
+    </div>
+ <div id="Anmeldung"> 
+      <form action="https://formsubmit.co/bobthecuddler@gmail.com" method="POST">
+      <h3 id="Anmeldungsheader">Anmeldung</h3>
+      <p id="Bistdudabei">Bist du dabei?</p>
+      <div id="knöpfe">
+        <input type="radio" class="knöpfchen" id="ja" name="Anmeldung">
+        <label for="ja" class="klabel" id="jas">Ja, natürlich</label>
+        <input type="radio" class="knöpfchen" id="nein" name="Anmeldung">
+        <label for="nein" class="klabel" id="neins">Nein, leider nicht</label>
+
+        <div id="extra-info">
+
+        <div class="extra">
+
+          <div class="anmeldediv">
+            <label for="vorname">Vorname:</label>
+            <input type="text" id="vorname" name="Vorname" class="Anmeldungi" required>
+          </div>
+
+          <div class="anmeldediv">
+            <label for="nachname">Nachname:</label>
+            <input type="text" id="nachname" name="Nachname" class="Anmeldungi" required>
+          </div>
+
+          <div class="anmeldediv">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" class="Anmeldungi" required>
+          </div>
+
+        </div>
+
+        <div class="radios">
+
+          <div class="wohin">
+            <input type="radio" id="Feier" name="FeierundTrauung" required>
+            <label for="Feier">Ich komme zur Trauung und zur Feier</label>
+          </div>
+
+          <div class="wohin">
+            <input type="radio" id="Trauunga" name="FeierundTrauung" required>
+            <label for="Trauunga">Ich komm nur zur Trauung</label>
+          </div>
+
+        </div>
+
+
+          <div id="Bemerkungencont">
+          <label for="bemerkungen">Bemerkungen: <br> </label>
+          <textarea id="bemerkungen" name="Bemerkungen" class="Anmeldungi"></textarea>
+        </div>
+          <input type="submit" id="submit">
+        </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>

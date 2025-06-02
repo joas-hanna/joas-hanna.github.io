@@ -1,271 +1,205 @@
-/* Grundlegende Stile */
-:root {
-    --primary-color: #585858;
-    --secondary-color: #bec5a4;
-    --text-color: #333;
-    --light-text: wheat;
-    --border-color: black;
-    --background-color: #f0e2d5;
-    --font-primary: "Imbue", serif;
-    --font-secondary: 'Courier New', Courier, monospace;
-}
-
 html {
     font-size: 60px;
-    font-family: var(--font-primary);
+    font-family: "Imbue", serif;
     text-align: center;
+
+}
+
+#Anfang {
+    text-align: center;
+    font-family: "Imbue", serif;
+    background-color: #585858;
+    margin:0px;
+    padding:0px;
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-/* Hero-Bereich */
-.hero-section {
-    text-align: center;
-    background-color: var(--primary-color);
+    border-bottom: solid, 10px, black; 
     background-image: url(Starter.jpg);
     background-size: 1536px 1000px;
+    overflow-y: hidden;
     background-repeat: no-repeat;
     background-position: center;
     height: 1000px;
-    overflow: hidden;
 }
-
-.hero-title {
-    color: var(--light-text);
-    margin-top: 200px;
-    font-size: 200px;
-    margin-bottom: 0;
-    font-weight: 700;
+#oben {
+color: wheat;
+margin-top: 200px;
+font-size: 200px;
+margin-bottom: 0px;
+font-weight: 700;
 }
-
-.countdown-container {
-    margin: 0;
+#demo {
+    margin-top: 0px;
+font-size: 100px;
+color: wheat;
+font-weight: 400;
+margin-bottom: 0px;
 }
-
-#countdown-display {
-    margin: 0;
-    font-size: 100px;
-    color: var(--light-text);
-    font-weight: 400;
-}
-
-.hero-subtitle {
-    margin-top: 0;
+#unterschrift {
+    margin-top: 0px;
     color: white;
 }
-
-/* Inhaltsbereiche */
-.content-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 100px 0;
-    position: relative;
+.box {
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+padding: 100px 0px;
+position: relative;
 }
-
-.content-text {
-    width: 40%;
-}
-
-.content-image {
+#kirchenbildcont {
     display: flex;
     align-items: center;
     width: 40%;
 }
-
-.section-image {
-    width: 100%;
-    height: auto;
+#kirchenbild {
+width: 100%;
+height: auto;
 }
-
-.content-divider {
+.links {
+    width: 40%;
+}
+.trenner {
     width: 3px;
-    background-color: var(--border-color);
-    align-self: stretch;
-    max-height: 75%;
+    background-color: black;
+    align-self: stretch;  
+    max-height: 75%;     
     margin: 0 10px;
-}
+  }
 
-/* Geschenke-Sektion */
-.gifts-section {
-    padding: 2rem 0;
-}
+#Anmeldung {
+    background-color: f0e2d5;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 
-.gift-list-container {
-    margin: 1rem 0;
 }
-
-.gift-list-link {
-    text-decoration: none;
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
-}
-
-.gift-list-link:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Anmeldeformular */
-.rsvp-section {
-    background-color: var(--background-color);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 2rem 0;
-}
-
-.section-title {
-    margin-bottom: 0;
-}
-
-.rsvp-question {
-    margin-top: 10px;
-}
-
-.rsvp-options {
+#knöpfe {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-
-.rsvp-radio {
-    background-color: var(--secondary-color);
-    border: 0;
+.knöpfchen {
+    background-color: #bec5a4;
+    border: 0px;
     border-radius: 4px;
     margin: 5px;
     font-size: 14px;
     opacity: 1;
 }
-
-.rsvp-label {
-    border: 2px solid var(--border-color);
-    padding: 5px;
-    transition: background-color 0.5s;
-    font-size: 40px;
+.knöpfchen:last-child {
+    display: block;
 }
-
-.rsvp-label:hover {
-    background-color: white;
-}
-
-.rsvp-details {
+#extra-info {
     margin-top: 20px;
     max-height: 0;
+    transition: max-height 0.3s ease;
     overflow: hidden;
-    transition: max-height 0.3s ease, overflow 0.3s ease;
+    transition: overflow 0.3s ease;
 }
-
-#rsvp-yes:checked ~ .rsvp-details,
-#rsvp-no:checked ~ .rsvp-details {
+#ja:checked ~ #extra-info {
     max-height: 50000px;
 }
-
-/* Formular-Elemente */
-.form-input {
-    background-color: var(--background-color);
-    margin: 5px 0;
+#nein:checked ~ #extra-info {
+    max-height: 50000px;
+}
+input {
     border: none;
-    border-bottom: 2px solid white;
-    font-family: var(--font-secondary);
     font-size: 40px;
 }
-
-.form-group {
+.klabel {
+    border: black 2px solid;
+    padding: 5px;
+    transition: background-color 0.5s;
+    font-size: 40;
+}
+.klabel:hover {
+    background-color: white;
+}
+#ja:checked + #jas {
+    background-color: white;
+}
+#nein:checked + #neins {
+    background-color: white;
+}
+.anmeldungi {
+    background-color: #f0e2d5;
+    margin-top: 5px;
+    border-bottom: white 2px solid;
+    margin-bottom: 5px;
+    font-family:'Courier New', Courier, monospace;
+}
+#submit {
+    background-color: #f0e2d5;
+    font-family: "Imbue", serif; 
+    font-size: 60px;
+    border: black, 2px, solid;
+}
+#bemerkungen {
+    width:1000px;
+    max-width: 90%;
+    font-size: 60px;
+    font-family: "Imbue", serif; 
+}
+.extra {
     flex-basis: 100%;
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
-.input-group {
-    margin-bottom: 10px;
+#bermerkungencont {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    justify-content: center;
 }
-
-.attendance-options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-    padding-left: 10px;
-    margin-left: 5%;
-}
-
-.attendance-option {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#attend-both,
-#attend-ceremony {
+#Trauunga, #Feier {
     font-size: 60px;
     transform: scale(2);
-    accent-color: var(--border-color);
+    accent-color: black;
+} 
+.wohin {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
 }
-
-.remarks-container {
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
+.radios {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-top: 20px;
+    padding-left: 10px; 
+    margin-left: 5%;
 }
-
-textarea.form-input {
-    width: 1000px;
-    max-width: 90%;
-    font-size: 60px;
-    font-family: var(--font-primary);
-}
-
-.submit-button {
-    background-color: var(--background-color);
-    font-family: var(--font-primary);
-    font-size: 60px;
-    border: 2px solid var(--border-color);
-    margin-top: 2rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Responsive Design */
-@media (max-width: 1000px) {
-    .input-group {
+@media (max-width:1000px) {
+    .anmeldediv {
         width: 100%;
         margin-left: 9%;
         flex: 0 0 auto;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px; 
     }
-    
-    .form-group {
+    .extra {
         flex-direction: column;
         align-items: flex-start;
     }
-    
-    .content-section {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .content-text,
-    .content-image {
-        width: 90%;
-    }
-    
-    .content-divider {
-        width: 90%;
-        height: 3px;
-        margin: 1rem 0;
-    }
+}
+#nein:checked ~ .radios {
+    display:none;
+}
+#Anmeldungsheader {
+    margin-bottom: 0px;
+}
+#bistdudabei {
+    margin-top: 10px;
+}
+#bildcontainer {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+#locationbild {
+    width: 100%;
+}
+#location {
+    background-color: #bec5a4;
+    border-top: black 2px solid;
 }
