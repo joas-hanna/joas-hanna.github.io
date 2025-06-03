@@ -12,7 +12,7 @@ html, body {
 #Anfang {
     text-align: center;
     font-family: "Imbue", serif;
-    background-color: #585858;
+    background-color: #ffffff;
     margin:0px;
     padding:0px;
     box-sizing: border-box;
@@ -23,6 +23,7 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     height: 1000px;
+    
 }
 #oben {
 color: wheat;
@@ -58,7 +59,7 @@ position: relative;
 width: 100%;
 height: auto;
 }
-.links {
+.links, .rechts {
     width: 40%;
 }
 .trenner {
@@ -75,7 +76,8 @@ height: auto;
     border-bottom: 1px solid black;
 
 }
-#knöpfe {
+
+#knöpfe  {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -86,6 +88,7 @@ height: auto;
     border-radius: 4px;
     margin: 5px;
     font-size: 14px;
+    width: fit-content;
     opacity: 0;
 }
 .knöpfchen:last-child {
@@ -206,4 +209,58 @@ input {
 #location {
     background-color: #bec5a4;
     border-top: black 2px solid;
+}
+.timeline {
+  position: relative;
+  margin: 100px auto;
+  padding-left: 0px;
+  border-left: 4px solid black;
+  width: fit-content;
+    left: -20%;
+}
+
+.event {
+  position: relative;
+  margin: 50px 0;
+  padding-left: 40px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  left: -11px; /* Hälfte vom Punkt, damit er auf der Linie liegt */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content {
+  font-size: 48px;
+  text-align: left;
+}
+.Labelos {
+    margin: 10px;
+}
+#weiterepersonen {
+    display:block!important;
+}
+.labelos {
+    display:block !important;
+}
+.containerhin {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border: black 2px solid;
+      margin: 10px auto;
+    width: fit-content;
+    border-radius: 6px;
+}
+#addField {
+    background-color: #6b705c;
+    font-size: 1em;
+    font-family: inherit;
+    color: #bec5a4;
 }
