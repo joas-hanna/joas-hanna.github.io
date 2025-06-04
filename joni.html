@@ -8,22 +8,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Lumanosimo&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Italianno&family=Lumanosimo&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+      <div id="herobox"><h1 id="oben">Joas & Hanna</h1></div>
     <div id="Anfang">
-
-        <h1 id="oben">Joas & Hanna</h1>
-
-        <div id="Countdown">
-        <p id="demo">Countdown</p>
-        </div>
-
-        <h2 id="unterschrift">Herzliche Einladung zu unserer Hochzeit!</h2>
-        
+        <p id="demo">Countdown</p>    
     </div>
+
+     <h2 id="unterschrift">Herzliche Einladung zu unserer Hochzeit!</h2>
+
+
 
     <div id="Trauung" class="box"> 
 
@@ -38,6 +36,8 @@
 
     </div>
 
+
+
     <div id="Location" class="box">
 
       <div id="bildcontainer">
@@ -50,8 +50,13 @@
 Engemühle 1, 79588 Efringen-Kirchen</p>
 
     </div>
-      <div id="Zeitstrahl">
-        <h3>Programm</h3>
+
+
+            <h3>Programm</h3>
+
+    <div id="flexy">
+
+
         <div class="timeline">
         <div class="event">
           <div class="dot"></div>
@@ -59,32 +64,49 @@ Engemühle 1, 79588 Efringen-Kirchen</p>
         </div>
         <div class="event">
           <div class="dot"></div>
-          <div class="content">16:00 Uhr – Sektempfang & Feier</div>
+          <div class="content">15:30 Uhr – Apéro</div>
         </div>
         <div class="event">
           <div class="dot"></div>
-          <div class="content">18:00 Uhr – Abendessen</div>
+          <div class="content">17:30 Uhr – Ankunft Location</div>
         </div>
         <div class="event">
           <div class="dot"></div>
-          <div class="content">20:00 Uhr – Torte & Tanz</div>
-        </div>
-        <div class="event">
-          <div class="dot"></div>
-          <div class="content">Open End 🎉</div>
+          <div class="content">Open End </div>
         </div>
       </div>
-    </div>
 
+      <div class="trennerb"></div>
+              <div id="programmanmelden">
+          <h4>Programm Anmeldung</h4>
+    <p>Falls ihr eine Kreative Idee habt könnt ihr sie gerne hier unten anmelden!</p>
+      <form>
+
+      <div id="programmanmeldungscont">
+        <div class="programmanmeldung">
+          <label for="fullname">Vor- und Nachname</label>
+          <input type="name" id="fullname" name="fullname">
+        </div>
+        <div class="programmanmeldung">
+          <label for="emaill">Email</label>
+          <input type="email" name="emaill">
+        </div>
+
+
+        
+        </form>
+    </div>  
+    </div>
+  </div>
 </div>
 
     <div id="Geschenke">
 
       <h3 id="Geschenkeheader">Geschenke</h3>
-      <p>Hier ist ein link:</p> <br>
+      <p class="nobot">Hier ist ein link:</p>
 
       <div id="geschenkebox">
-        <a href="https://www.nocake.de/user/lordkleinstein/joas-und-hannas-wunschzettel">Geschenkeliste</a>
+        <a id="link" href="https://www.nocake.de/user/lordkleinstein/joas-und-hannas-wunschzettel">Geschenkeliste</a>
       </div>
 
     </div>
@@ -120,19 +142,7 @@ Engemühle 1, 79588 Efringen-Kirchen</p>
 
             </div>
 
-            <div class="radios">
 
-              <div class="wohin">
-                <input type="radio" id="Feier" name="FeierundTrauung" required>
-                <label for="Feier">Ich komme zur Trauung und zur Feier</label>
-              </div>
-
-              <div class="wohin">
-                <input type="radio" id="Trauunga" name="FeierundTrauung" required>
-                <label for="Trauunga">Ich komm nur zur Trauung</label>
-              </div>
-
-            </div>
            <button id="addField" type="button">Eine Weitere Person hinzufügen</button>
             <div id="weiterepersonen">
 
