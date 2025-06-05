@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Joas & Hanna b5</title>
+    <title>Joas & Hanna b6</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -165,13 +165,27 @@
                         };
 
                         try {
-                            const response = await fetch('https://kaltenbachstagebau.com/empfaenger/data/registrations.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(formData)
-                            });
+                            // Versuche zuerst den direkten Zugriff
+                            let response;
+                            try {
+                                response = await fetch('https://kaltenbachstagebau.com/empfaenger/data/registrations.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData)
+                                });
+                            } catch (error) {
+                                console.log('Direkter Zugriff fehlgeschlagen, versuche über Proxy...');
+                                // Wenn der direkte Zugriff fehlschlägt, versuche es über den Proxy
+                                response = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://kaltenbachstagebau.com/empfaenger/data/registrations.php'), {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData)
+                                });
+                            }
 
                             const result = await response.json();
                             
