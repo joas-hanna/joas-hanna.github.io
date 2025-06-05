@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Joas & Hanna b4</title>
+    <title>Joas & Hanna b5</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -77,13 +77,17 @@
                 <p class="rsvp-question">Bist du dabei?</p>
                 
                 <div class="rsvp-options">
-                    <input type="radio" class="rsvp-radio" id="rsvp-yes" name="anmeldung" value="ja" required>
-                    <label for="rsvp-yes" class="rsvp-label">Ja, natürlich</label>
+                    <div class="radio-group">
+                        <input type="radio" class="rsvp-radio" id="rsvp-yes" name="anmeldung" value="ja" required>
+                        <label for="rsvp-yes" class="rsvp-label">Ja, natürlich</label>
+                    </div>
                     
-                    <input type="radio" class="rsvp-radio" id="rsvp-no" name="anmeldung" value="nein" required>
-                    <label for="rsvp-no" class="rsvp-label">Nein, leider nicht</label>
+                    <div class="radio-group">
+                        <input type="radio" class="rsvp-radio" id="rsvp-no" name="anmeldung" value="nein" required>
+                        <label for="rsvp-no" class="rsvp-label">Nein, leider nicht</label>
+                    </div>
 
-                    <div class="rsvp-details">
+                    <div class="rsvp-details" id="rsvp-details">
                         <div class="form-group">
                             <div class="input-group">
                                 <label for="vorname">Vorname:</label>
@@ -102,12 +106,12 @@
                         </div>
 
                         <div class="attendance-options">
-                            <div class="attendance-option">
+                            <div class="radio-group">
                                 <input type="radio" id="attend-both" name="teilnahme" value="beides" required>
                                 <label for="attend-both">Ich komme zur Trauung und zur Feier</label>
                             </div>
 
-                            <div class="attendance-option">
+                            <div class="radio-group">
                                 <input type="radio" id="attend-ceremony" name="teilnahme" value="nur_trauung" required>
                                 <label for="attend-ceremony">Ich komme nur zur Trauung</label>
                             </div>
@@ -125,61 +129,124 @@
             </form>
 
             <script>
-                document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    const submitButton = document.querySelector('.submit-button');
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.getElementById('rsvpForm');
+                    const detailsSection = document.getElementById('rsvp-details');
                     const messageElement = document.getElementById('form-message');
                     
-                    // Button deaktivieren während des Sendens
-                    submitButton.disabled = true;
-                    submitButton.textContent = 'Wird gesendet...';
-                    
-                    const formData = {
-                        vorname: document.getElementById('vorname').value,
-                        nachname: document.getElementById('nachname').value,
-                        email: document.getElementById('email').value,
-                        teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || '',
-                        bemerkungen: document.getElementById('bemerkungen').value,
-                        anmeldung: document.querySelector('input[name="anmeldung"]:checked')?.value || ''
-                    };
-
-                    try {
-                        const response = await fetch('https://kaltenbachstagebau.com/empfaenger/data/registrations.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Origin': 'https://joas-hanna.github.io'
-                            },
-                            body: JSON.stringify(formData)
+                    // Zeige/Verstecke Details basierend auf Anmeldung
+                    document.querySelectorAll('input[name="anmeldung"]').forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            detailsSection.style.display = this.value === 'ja' ? 'block' : 'none';
+                            // Wenn "Nein" gewählt wurde, deaktiviere die Pflichtfelder
+                            const requiredFields = form.querySelectorAll('input[required], select[required]');
+                            requiredFields.forEach(field => {
+                                if (field.name !== 'anmeldung') {
+                                    field.required = this.value === 'ja';
+                                }
+                            });
                         });
+                    });
 
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-
-                        const result = await response.json();
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
                         
-                        if (result.success) {
-                            messageElement.style.color = 'green';
-                            messageElement.textContent = 'Vielen Dank für deine Anmeldung!';
-                            document.getElementById('rsvpForm').reset();
-                        } else {
+                        const submitButton = form.querySelector('.submit-button');
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Wird gesendet...';
+                        
+                        const formData = {
+                            vorname: document.getElementById('vorname').value,
+                            nachname: document.getElementById('nachname').value,
+                            email: document.getElementById('email').value,
+                            teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || '',
+                            bemerkungen: document.getElementById('bemerkungen').value,
+                            anmeldung: document.querySelector('input[name="anmeldung"]:checked')?.value || ''
+                        };
+
+                        try {
+                            const response = await fetch('https://kaltenbachstagebau.com/empfaenger/data/registrations.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(formData)
+                            });
+
+                            const result = await response.json();
+                            
+                            if (result.success) {
+                                messageElement.style.color = 'green';
+                                messageElement.textContent = 'Vielen Dank für deine Anmeldung!';
+                                form.reset();
+                                detailsSection.style.display = 'none';
+                            } else {
+                                messageElement.style.color = 'red';
+                                messageElement.textContent = result.error || 'Es gab einen Fehler bei der Anmeldung. Bitte versuche es später noch einmal.';
+                            }
+                        } catch (error) {
+                            console.error('Fehler:', error);
                             messageElement.style.color = 'red';
-                            messageElement.textContent = result.error || 'Es gab einen Fehler bei der Anmeldung. Bitte versuche es später noch einmal.';
+                            messageElement.textContent = 'Es gab einen Fehler bei der Anmeldung. Bitte versuche es später noch einmal.';
+                        } finally {
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Absenden';
                         }
-                    } catch (error) {
-                        console.error('Fehler:', error);
-                        messageElement.style.color = 'red';
-                        messageElement.textContent = 'Es gab einen Fehler bei der Anmeldung. Bitte versuche es später noch einmal.';
-                    } finally {
-                        // Button wieder aktivieren
-                        submitButton.disabled = false;
-                        submitButton.textContent = 'Absenden';
-                    }
+                    });
                 });
             </script>
         </section>
     </main>
+
+    <style>
+    .radio-group {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-group input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    .radio-group label {
+        cursor: pointer;
+    }
+
+    .rsvp-details {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .submit-button:hover {
+        background-color: #0056b3;
+    }
+    </style>
 </body>
 </html>
