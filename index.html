@@ -145,7 +145,7 @@
                     };
 
                     try {
-                        const response = await fetch('../empänger/registrations.php', {
+                        const response = await fetch('../empänger/data/registrations.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -159,7 +159,7 @@
 
                         const result = await response.json();
                         
-                        if (response.ok) {
+                        if (result.success) {
                             messageElement.style.color = 'green';
                             messageElement.textContent = 'Vielen Dank für deine Anmeldung!';
                             document.getElementById('rsvpForm').reset();
