@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Joas & Hanna test text</title>
+    <title>Joas & Hanna b3</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -77,10 +77,10 @@
                 <p class="rsvp-question">Bist du dabei?</p>
                 
                 <div class="rsvp-options">
-                    <input type="radio" class="rsvp-radio" id="rsvp-yes" name="Anmeldung" value="ja" required>
+                    <input type="radio" class="rsvp-radio" id="rsvp-yes" name="anmeldung" value="ja" required>
                     <label for="rsvp-yes" class="rsvp-label">Ja, natürlich</label>
                     
-                    <input type="radio" class="rsvp-radio" id="rsvp-no" name="Anmeldung" value="nein" required>
+                    <input type="radio" class="rsvp-radio" id="rsvp-no" name="anmeldung" value="nein" required>
                     <label for="rsvp-no" class="rsvp-label">Nein, leider nicht</label>
 
                     <div class="rsvp-details">
@@ -141,7 +141,7 @@
                         email: document.getElementById('email').value,
                         teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || '',
                         bemerkungen: document.getElementById('bemerkungen').value,
-                        anmeldung: document.querySelector('input[name="Anmeldung"]:checked')?.value || ''
+                        anmeldung: document.querySelector('input[name="anmeldung"]:checked')?.value || ''
                     };
 
                     try {
