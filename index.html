@@ -145,13 +145,17 @@
                     };
 
                     try {
-                        const response = await fetch('http://localhost:8000/registrations.php', {
+                        const response = await fetch('../empänger/registrations.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
                             body: JSON.stringify(formData)
                         });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
 
                         const result = await response.json();
                         
